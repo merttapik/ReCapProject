@@ -10,9 +10,17 @@ namespace ConsoleTesting
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetAll())
+            var result = carManager.GetCarDetail();
+            if (result.Success)
             {
-                Console.WriteLine(car.Description);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.BrandName + "/" + car.ColorName + "/" + car.CarName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
     }

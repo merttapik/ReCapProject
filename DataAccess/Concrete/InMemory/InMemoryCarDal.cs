@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,11 @@ namespace DataAccess.Concrete.InMemory
         {
             //brandıd ye göre alıp where le onları arraya atıyo sondaki tolist ise list haline getiriyor
            return _cars.Where(c => c.Id == brandId).ToList();
+        }
+
+        public List<CarDetailDto> GetCarDetail()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
